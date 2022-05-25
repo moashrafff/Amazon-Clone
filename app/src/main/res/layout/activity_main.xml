@@ -23,14 +23,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Search Amazon.eg"
-                android:background="@drawable/search_et_shape"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="10dp"
-                android:padding="5dp"
+                android:background="@drawable/search_et_shape"
                 android:drawableStart="@drawable/search_icon"
                 android:drawablePadding="5dp"
-                />
+                android:hint="Search Amazon.eg"
+                android:padding="5dp"
+                android:elevation="2dp"/>
 
         </RelativeLayout>
 
@@ -80,6 +80,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/deliver"
         android:layout_centerInParent="true"
+        android:id="@+id/main_container"
         />
 
 
