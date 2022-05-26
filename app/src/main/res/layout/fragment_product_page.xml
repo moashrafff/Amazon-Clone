@@ -42,8 +42,11 @@
                     android:stepSize="0.5"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_gravity="center"
+                    android:progressTint="#fda519"
+                    android:progressBackgroundTint="#d39b65"
                     />
                 <TextView
+                    android:id="@+id/rating_number_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="152"
@@ -68,19 +71,56 @@
             android:id="@+id/product_title"
             />
 
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/deals_image_slider"
+        <ImageView
+            android:id="@+id/PRODUCT_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@+id/product_title"
-            android:layout_marginTop="10dp"
-            app:sliderAnimationDuration="600"
-            app:sliderAutoCycleDirection="back_and_forth"
-            app:sliderAutoCycleEnabled="true"
-            app:sliderScrollTimeInSec="2"
-            app:sliderStartAutoCycle="true"
+            android:layout_marginTop="10dp" />
 
-            />
+        <LinearLayout
+            android:id="@+id/btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/food_item_like_shape"
+            android:gravity="center"
+            android:layout_alignBottom="@+id/PRODUCT_image"
+            android:layout_alignStart="@+id/PRODUCT_image"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/like_icon"
+                android:clickable="true"
+                android:id="@+id/like_btn"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/share_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/food_item_like_shape"
+            android:gravity="center"
+            android:layout_alignTop="@+id/PRODUCT_image"
+            android:layout_alignEnd="@+id/PRODUCT_image"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/share_icon"
+                android:clickable="true"
+                />
+        </LinearLayout>
 
 
     </RelativeLayout>

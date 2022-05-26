@@ -1,6 +1,7 @@
 package com.moashrafff.amazon_clone.Networking;
 
 import com.moashrafff.amazon_clone.Config.Constants;
+import com.moashrafff.amazon_clone.Data.Model.Product;
 import com.moashrafff.amazon_clone.Interfaces.EndPoints;
 
 import java.util.ArrayList;
@@ -34,5 +35,9 @@ public class ProductClient {
 
     public Observable<ArrayList<String>> getCategories(){
         return Interface.getCategories();
+    }
+
+    public Observable<Product> getProducts(){
+        return Interface.getProducts();
     }
 }

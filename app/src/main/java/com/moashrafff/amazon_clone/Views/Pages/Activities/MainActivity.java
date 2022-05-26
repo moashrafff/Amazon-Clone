@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.moashrafff.amazon_clone.R;
 import com.moashrafff.amazon_clone.Views.Pages.Fragments.a_LandingPageFragment;
+import com.moashrafff.amazon_clone.Views.Pages.Fragments.b_ProductPageFragment;
 import com.moashrafff.amazon_clone.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Fragment landingPageFragment = new a_LandingPageFragment();
+        Fragment landingPageFragment = new b_ProductPageFragment();
         showFragment(landingPageFragment);
     }
     private void showFragment(Fragment fragment) {
