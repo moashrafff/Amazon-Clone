@@ -11,7 +11,5 @@ public class DealsBoarding {
         return boarding_img;
     }
 
-    public void setBoarding_img(int boarding_img) {
-        this.boarding_img = boarding_img;
-    }
+
 }
