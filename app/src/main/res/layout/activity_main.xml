@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:id="@+id/tool_bar"
+        android:background="@drawable/gredient_shape"
+        android:fitsSystemWindows="true"
 
         >
         <RelativeLayout
@@ -39,51 +41,14 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
-    <LinearLayout
-        android:id="@+id/deliver"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tool_bar"
-        android:background="@color/purple_500"
-        android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/location_vector" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="7dp"
-                android:fontFamily="@font/amazonember_lt"
-                android:text="Deliver to Egypt"
-                android:textColor="@color/black"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="1dp"
-                android:src="@drawable/down_arrow" />
-        </LinearLayout>
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavView"
-        android:layout_below="@+id/deliver"
+        android:layout_below="@+id/tool_bar"
         android:layout_centerInParent="true" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,5 +1,6 @@
 package com.moashrafff.amazon_clone.Views.Pages.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,7 @@ public class b_ProductPageFragment extends Fragment implements View.OnClickListe
         binding.qtySpinner.setOnItemSelectedListener(this);
         binding.addToCartBtn.setOnClickListener(this);
         binding.butNow.setOnClickListener(this);
+        binding.shareBtn.setOnClickListener(this);
         aa = new ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,spinner);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.qtySpinner.setAdapter(aa);
@@ -60,23 +62,25 @@ public class b_ProductPageFragment extends Fragment implements View.OnClickListe
         super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
         viewModel.getProducts();
-//        viewModel.productsLiveData.observe(requireActivity(), new Observer<Product>() {
-//            @Override
-//            public void onChanged(Product product) {
-//                Glide.with(requireContext()).load(product.getImage()).into(binding.PRODUCTImage);
-//                binding.productTitle.setText(product.getTitle());
-//                binding.ratingNumberTv.setText(product.getRating().getCount()+"");
-//                binding.ratingBar.setMax(5);
-//                binding.ratingBar.setRating((float)product.getRating().getRate());
-//                binding.productPrice.setText(product.getPrice()+"");
-//                binding.categoryyTv.setText(product.getCategory());
-//                binding.descriptionTv.setText(product.getDescription());
-//            }
-//        });
+
+        Bundle bundle = this.getArguments();
+        String title = bundle.getString("title");
+        String image = bundle.getString("productImage");
+        String description = bundle.getString("description");
+        String category = bundle.getString("category");
+        int ratingNumber = bundle.getInt("ratingNumber");
+        double rating = bundle.getDouble("rating");
+        double price = bundle.getDouble("price");
 
 
-
-
+        Glide.with(requireContext()).load(image).into(binding.PRODUCTImage);
+                binding.productTitle.setText(title);
+                binding.ratingNumberTv.setText(ratingNumber+"");
+                binding.ratingBar.setMax(5);
+                binding.ratingBar.setRating((float)rating);
+                binding.productPrice.setText(price+"");
+                binding.categoryyTv.setText(category);
+                binding.descriptionTv.setText(description);
 
     }
 
@@ -104,6 +108,13 @@ public class b_ProductPageFragment extends Fragment implements View.OnClickListe
                 toast = new CustomToast(requireContext(),"Buy it Now");
                 toast.show();
                 break;
+
+            case R.id.share_btn:
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Check Out this cool Application");
+                intent.putExtra(Intent.EXTRA_TEXT,"Your required shared data");
+                startActivity(Intent.createChooser(intent,"Share Via"));
         }
         flag = !flag;
     }

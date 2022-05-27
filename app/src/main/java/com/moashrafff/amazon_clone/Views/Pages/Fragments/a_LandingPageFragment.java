@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.moashrafff.amazon_clone.Data.Model.Deal;
 import com.moashrafff.amazon_clone.Data.Model.Product;
+import com.moashrafff.amazon_clone.Interfaces.OnItemClickListener;
 import com.moashrafff.amazon_clone.R;
 import com.moashrafff.amazon_clone.ViewModel.ProductViewModel;
 import com.moashrafff.amazon_clone.Views.Adapters.HomeCategoryAdapter;
@@ -29,7 +30,7 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import java.util.ArrayList;
 
 
-public class a_LandingPageFragment extends Fragment {
+public class a_LandingPageFragment extends Fragment implements OnItemClickListener {
 
     private FragmentLandingPageBinding binding;
     private HomeCategoryAdapter adapter;
@@ -65,7 +66,7 @@ public class a_LandingPageFragment extends Fragment {
         dealsAdapter.setDeals(fillDealsList());
 
 
-        productAdapter = new HomeProductAdapter(requireContext());
+        productAdapter = new HomeProductAdapter(requireContext(),this);
         binding.productsRv.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false));
         binding.productsRv.setAdapter(productAdapter);
 
@@ -103,5 +104,30 @@ public class a_LandingPageFragment extends Fragment {
         deals.add(new Deal("Below EGP 95 Kids & Baby", R.drawable.deal_kids));
         deals.add(new Deal("Up to 60% off Eyewear", R.drawable.deal_model));
         return deals;
+    }
+
+    @Override
+    public void onItemClick(Product product) {
+        Bundle bundle = new Bundle();
+        bundle.putString("title",product.getTitle());
+        bundle.putDouble("rating",product.getRating().getRate());
+        bundle.putInt("ratingNumber",product.getRating().getCount());
+        bundle.putDouble("price",product.getPrice());
+        bundle.putString("productImage",product.getImage());
+        bundle.putString("description",product.getDescription());
+        bundle.putString("category",product.getCategory());
+
+        Fragment fragment = new b_ProductPageFragment();
+        fragment.setArguments(bundle);
+        showFragment(fragment);
+
+
+    }
+
+    private void showFragment(Fragment fragment) {
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.main_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

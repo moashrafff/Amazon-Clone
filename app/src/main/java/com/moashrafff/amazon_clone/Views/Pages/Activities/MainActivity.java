@@ -24,13 +24,14 @@ import com.moashrafff.amazon_clone.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+    private Fragment landingPageFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Fragment landingPageFragment = new a_LandingPageFragment();
+        landingPageFragment = new a_LandingPageFragment();
         showFragment(landingPageFragment);
         binding.bottomNavView.setOnItemSelectedListener(this);
 

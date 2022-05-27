@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.moashrafff.amazon_clone.Data.Model.Deal;
 import com.moashrafff.amazon_clone.Data.Model.Product;
+import com.moashrafff.amazon_clone.Interfaces.OnItemClickListener;
 import com.moashrafff.amazon_clone.R;
 import com.moashrafff.amazon_clone.databinding.DealItemBinding;
 import com.moashrafff.amazon_clone.databinding.ProductItemBinding;
@@ -22,20 +23,22 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
     private Context context;
     private ArrayList<Product> products = new ArrayList<>();
+    private OnItemClickListener listener;
 
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
         notifyDataSetChanged();
     }
 
-    public HomeProductAdapter(Context context) {
+    public HomeProductAdapter(Context context,OnItemClickListener listener) {
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ProductViewHolder holder = new ProductViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, parent, false));
+        ProductViewHolder holder = new ProductViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, parent, false),listener);
         return holder;
     }
 
@@ -50,13 +53,16 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
         return products.size();
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ProductItemBinding binding;
         Product model;
-        public ProductViewHolder(@NonNull View itemView) {
+        OnItemClickListener listener;
+        public ProductViewHolder(@NonNull View itemView,OnItemClickListener listener) {
             super(itemView);
             binding = ProductItemBinding.bind(itemView);
+            this.listener = listener;
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Product model) {
@@ -65,6 +71,11 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
             binding.productPriceTv.setText(model.getPrice()+"");
             Glide.with(context).load(model.getImage()).into(binding.productImageView);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onItemClick(products.get(getAdapterPosition()));
         }
     }
 

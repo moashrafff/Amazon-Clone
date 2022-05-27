@@ -15,14 +15,55 @@
             android:layout_height="match_parent"
             >
 
+            <LinearLayout
+                android:id="@+id/deliver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gredient_shape"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/location_vector" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="7dp"
+                        android:fontFamily="@font/amazonember_lt"
+                        android:text="Deliver to Egypt"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/down_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categories_rv"
                 android:layout_width="match_parent"
                 android:layout_height="145dp"
-                android:layout_alignParentTop="true"
+
                 android:clipToPadding="false"
                 android:padding="10dp"
-                tools:listitem="@layout/category_item" />
+                tools:listitem="@layout/category_item"
+                android:layout_below="@+id/deliver"
+                />
 
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/deals_image_slider"
