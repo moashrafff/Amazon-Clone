@@ -13,9 +13,14 @@
         <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/custom_dialog.xml" value="0.16" />
         <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/deal_item.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/deals_board_item.xml" value="0.136" />
+        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_buy.xml" value="0.10104166666666667" />
         <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_landing_page.xml" value="0.2421875" />
-        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_product_page.xml" value="0.26187717265353416" />
+        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_menu.xml" value="0.10104166666666667" />
+        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_product_page.xml" value="0.39100346020761245" />
+        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/fragment_profile.xml" value="0.2421875" />
         <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/layout/product_board_item.xml" value="0.2421875" />
+        <entry key="..\:/Users/Technology/AndroidStudioProjects/AmazonClone/app/src/main/res/menu/bottom_nav.xml" value="0.2421875" />
+        <entry key="..\:/Users/Technology/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.2421875" />
       </map>
     </option>
   </component>

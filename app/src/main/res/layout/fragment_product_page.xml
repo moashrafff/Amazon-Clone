@@ -1,131 +1,437 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Views.Pages.Fragments.b_ProductPageFragment">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/top_layout"
-            android:orientation="horizontal"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="10dp"
+            android:layout_height="match_parent"
             >
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Brand: Amazon"
-                android:textColor="#2b6e79"
-                android:textSize="17sp"
-                android:layout_alignParentStart="true"
-                />
+                android:id="@+id/top_layout"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:orientation="vertical"
                 >
 
-                <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rating_bar"
-                    android:numStars="5"
-                    android:stepSize="0.5"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_gravity="center"
-                    android:progressTint="#fda519"
-                    android:progressBackgroundTint="#d39b65"
-                    />
                 <TextView
-                    android:id="@+id/rating_number_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="152"
+                    android:layout_alignParentStart="true"
+                    android:text="Brand: Amazon"
                     android:textColor="#2b6e79"
-                    android:textSize="17sp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    >
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rating_bar"
+                        android:numStars="5"
+                        android:stepSize="0.5"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_gravity="center"
+                        android:progressTint="#fda519"
+                        android:progressBackgroundTint="#d39b65"
+                        />
+                    <TextView
+                        android:id="@+id/rating_number_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="152"
+                        android:textColor="#2b6e79"
+                        android:textSize="17sp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_layout"
+                android:fontFamily="@font/amazon_ember_medium"
+                android:layout_marginHorizontal="5dp"
+                android:text="Kendel"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/PRODUCT_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/product_title"
+                android:layout_marginTop="15dp" />
+
+            <LinearLayout
+                android:id="@+id/btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/food_item_like_shape"
+                android:gravity="center"
+                android:layout_alignBottom="@+id/PRODUCT_image"
+                android:layout_alignStart="@+id/PRODUCT_image"
+                android:clickable="true"
+                >
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/like_icon"
+                    android:clickable="true"
+                    android:id="@+id/like_btn"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/share_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/food_item_like_shape"
+                android:gravity="center"
+                android:layout_alignTop="@+id/PRODUCT_image"
+                android:layout_alignEnd="@+id/PRODUCT_image"
+                android:clickable="true"
+                >
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/share_icon"
+                    android:clickable="true"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginVertical="10dp"
+                android:id="@+id/details_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/PRODUCT_image">
+
+                <TextView
+                    android:id="@+id/egp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/product_price"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/amazonember_lt"
+                    android:text="EGP"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/egp"
+                    android:layout_marginStart="30dp"
+                    android:fontFamily="@font/amazon_ember_medium"
+                    android:text="12,0"
+                    android:textColor="@color/black"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/allprices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/product_price"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/amazonember_lt"
+                    android:text="All prices include Vat"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/delivery_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/allprices"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FREE delivery"
+                        android:textColor="#54969e"
+                        android:textSize="17sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Tomorrow, May 27"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Order within 1 hr"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/delivery_layout"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:clickable="true"
+                        android:src="@drawable/location_vector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deliver to Egypt"
+                        android:textColor="#54969e"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/in_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details_layout"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:text="In Stock."
+                android:textColor="#326f38"
+                android:textSize="17sp" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/in_stock"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/qty_spinner"
+                />
+
+
+            <com.moashrafff.amazon_clone.Views.Widgets.MainButton
+                android:id="@+id/add_to_cart_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/qty_spinner"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Add to Cart"
+                app:button_color="#fed813" />
+
+            <com.moashrafff.amazon_clone.Views.Widgets.MainButton
+                android:id="@+id/but_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_to_cart_btn"
+                android:layout_marginTop="10dp"
+                android:text="Buy Now"
+                app:button_color="#ffa51d"
+                android:layout_marginHorizontal="10dp"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/ships_from_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/but_now"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ships from:"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Amazon.eg"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/ships_from_layout"
+                android:layout_marginStart="10dp"
+                android:id="@+id/sold_by_layout"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sold by:"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amazon.eg"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"
+
                     />
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/deliver_to_egypt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sold_by_layout"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Deliver to Egypt"
+                android:textColor="#54969e"
+                android:textSize="17sp" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/liiii"
+                android:layout_below="@+id/deliver_to_egypt"
+                android:id="@+id/image"
+                />
+
+            <TextView
+                android:id="@+id/see_on_amazon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:text="SELL ON AMAZON"
+                android:textColor="#54969e"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/see_on_amazon"
+                >
+
+                <LinearLayout
+                    android:id="@+id/category_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category:"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Amazon.eg"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:id="@+id/categoryy_tv"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/des_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description:"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Amazon.eg"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:id="@+id/description_tv"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/top_layout"
-            android:text="Kendel"
-            android:textSize="30sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/amazon_ember_medium"
-            android:id="@+id/product_title"
-            />
 
-        <ImageView
-            android:id="@+id/PRODUCT_image"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@+id/product_title"
-            android:layout_marginTop="10dp" />
-
-        <LinearLayout
-            android:id="@+id/btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/food_item_like_shape"
-            android:gravity="center"
-            android:layout_alignBottom="@+id/PRODUCT_image"
-            android:layout_alignStart="@+id/PRODUCT_image"
-            android:clickable="true"
-            >
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/like_icon"
-                android:clickable="true"
-                android:id="@+id/like_btn"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/share_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/food_item_like_shape"
-            android:gravity="center"
-            android:layout_alignTop="@+id/PRODUCT_image"
-            android:layout_alignEnd="@+id/PRODUCT_image"
-            android:clickable="true"
-            >
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/share_icon"
-                android:clickable="true"
-                />
-        </LinearLayout>
-
-
-    </RelativeLayout>
+    </ScrollView>
 
 
 
 
-</ScrollView>
+
+
+</RelativeLayout>
