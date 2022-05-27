@@ -71,8 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/top_layout"
-                android:fontFamily="@font/amazon_ember_medium"
                 android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_medium"
                 android:text="Kendel"
                 android:textColor="@color/black"
                 android:textSize="30sp" />

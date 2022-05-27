@@ -60,19 +60,19 @@ public class b_ProductPageFragment extends Fragment implements View.OnClickListe
         super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
         viewModel.getProducts();
-        viewModel.productsLiveData.observe(requireActivity(), new Observer<Product>() {
-            @Override
-            public void onChanged(Product product) {
-                Glide.with(requireContext()).load(product.getImage()).into(binding.PRODUCTImage);
-                binding.productTitle.setText(product.getTitle());
-                binding.ratingNumberTv.setText(product.getRating().getCount()+"");
-                binding.ratingBar.setMax(5);
-                binding.ratingBar.setRating((float)product.getRating().getRate());
-                binding.productPrice.setText(product.getPrice()+"");
-                binding.categoryyTv.setText(product.getCategory());
-                binding.descriptionTv.setText(product.getDescription());
-            }
-        });
+//        viewModel.productsLiveData.observe(requireActivity(), new Observer<Product>() {
+//            @Override
+//            public void onChanged(Product product) {
+//                Glide.with(requireContext()).load(product.getImage()).into(binding.PRODUCTImage);
+//                binding.productTitle.setText(product.getTitle());
+//                binding.ratingNumberTv.setText(product.getRating().getCount()+"");
+//                binding.ratingBar.setMax(5);
+//                binding.ratingBar.setRating((float)product.getRating().getRate());
+//                binding.productPrice.setText(product.getPrice()+"");
+//                binding.categoryyTv.setText(product.getCategory());
+//                binding.descriptionTv.setText(product.getDescription());
+//            }
+//        });
 
 
 

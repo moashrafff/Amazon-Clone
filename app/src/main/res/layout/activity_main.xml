@@ -29,9 +29,11 @@
                 android:background="@drawable/search_et_shape"
                 android:drawableStart="@drawable/search_icon"
                 android:drawablePadding="5dp"
+                android:elevation="2dp"
                 android:hint="Search Amazon.eg"
                 android:padding="5dp"
-                android:elevation="2dp"/>
+                android:maxLines="1"
+                />
 
         </RelativeLayout>
 
@@ -80,10 +82,9 @@
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/deliver"
-        android:layout_centerInParent="true"
         android:layout_above="@+id/bottomNavView"
-        />
+        android:layout_below="@+id/deliver"
+        android:layout_centerInParent="true" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"
@@ -96,7 +97,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav"
         android:layout_alignParentBottom="true"
-
         />
 
 

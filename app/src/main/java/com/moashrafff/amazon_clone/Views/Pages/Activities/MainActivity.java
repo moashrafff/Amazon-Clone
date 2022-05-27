@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Fragment landingPageFragment = new b_ProductPageFragment();
+        Fragment landingPageFragment = new a_LandingPageFragment();
         showFragment(landingPageFragment);
         binding.bottomNavView.setOnItemSelectedListener(this);
 

@@ -15,8 +15,8 @@ public interface EndPoints {
     @GET("products/categories")
     public Observable<ArrayList<String>> getCategories();
 
-    @GET("products/1")
-    public Observable<Product> getProducts();
+    @GET("products")
+    public Observable<ArrayList<Product>> getProducts();
 
 
 }

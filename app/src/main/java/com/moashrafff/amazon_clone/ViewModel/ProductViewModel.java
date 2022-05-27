@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 public class ProductViewModel extends ViewModel {
 
     public MutableLiveData<ArrayList<String>> categories = new MutableLiveData<>();
-    public MutableLiveData<Product> productsLiveData = new MutableLiveData<>();
+    public MutableLiveData<ArrayList<Product>> productsLiveData = new MutableLiveData<>();
 
     public void getCategories() {
         Observable observable = ProductClient.getINSTANCE().getCategories()
@@ -54,15 +54,15 @@ public class ProductViewModel extends ViewModel {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread());
 
-        Observer <Product> observer = new Observer<Product>() {
+        Observer <ArrayList<Product>> observer = new Observer<ArrayList<Product>>() {
             @Override
             public void onSubscribe(Disposable d) {
 
             }
 
             @Override
-            public void onNext(Product product) {
-                productsLiveData.setValue(product);
+            public void onNext(ArrayList<Product> products) {
+                productsLiveData.setValue(products);
             }
 
             @Override

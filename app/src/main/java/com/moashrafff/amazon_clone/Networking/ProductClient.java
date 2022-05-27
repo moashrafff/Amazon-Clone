@@ -37,7 +37,7 @@ public class ProductClient {
         return Interface.getCategories();
     }
 
-    public Observable<Product> getProducts(){
+    public Observable<ArrayList<Product>> getProducts(){
         return Interface.getProducts();
     }
 }

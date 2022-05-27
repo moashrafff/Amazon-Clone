@@ -15,10 +15,12 @@ import android.view.ViewGroup;
 
 
 import com.moashrafff.amazon_clone.Data.Model.Deal;
+import com.moashrafff.amazon_clone.Data.Model.Product;
 import com.moashrafff.amazon_clone.R;
 import com.moashrafff.amazon_clone.ViewModel.ProductViewModel;
 import com.moashrafff.amazon_clone.Views.Adapters.HomeCategoryAdapter;
 import com.moashrafff.amazon_clone.Views.Adapters.HomeDealsAdapter;
+import com.moashrafff.amazon_clone.Views.Adapters.HomeProductAdapter;
 import com.moashrafff.amazon_clone.Views.Adapters.SliderAdapter;
 import com.moashrafff.amazon_clone.databinding.FragmentLandingPageBinding;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -33,6 +35,7 @@ public class a_LandingPageFragment extends Fragment {
     private HomeCategoryAdapter adapter;
     private SliderAdapter sliderAdapter;
     private HomeDealsAdapter dealsAdapter;
+    private HomeProductAdapter productAdapter;
     private ProductViewModel viewModel;
     private ArrayList<Integer> pictures;
 
@@ -60,6 +63,12 @@ public class a_LandingPageFragment extends Fragment {
         binding.dealsRv.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false));
         binding.dealsRv.setAdapter(dealsAdapter);
         dealsAdapter.setDeals(fillDealsList());
+
+
+        productAdapter = new HomeProductAdapter(requireContext());
+        binding.productsRv.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false));
+        binding.productsRv.setAdapter(productAdapter);
+
         return view;
     }
 
@@ -68,11 +77,19 @@ public class a_LandingPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
         viewModel.getCategories();
+        viewModel.getProducts();
         viewModel.categories.observe(requireActivity(), new Observer<ArrayList<String>>() {
             @Override
             public void onChanged(ArrayList<String> strings) {
                 adapter.setCategoriesNames(strings);
 
+            }
+        });
+
+        viewModel.productsLiveData.observe(requireActivity(), new Observer<ArrayList<Product>>() {
+            @Override
+            public void onChanged(ArrayList<Product> products) {
+                productAdapter.setProducts(products);
             }
         });
     }

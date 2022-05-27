@@ -1,65 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Views.Pages.Fragments.a_LandingPageFragment">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categories_rv"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="145dp"
-            android:layout_alignParentTop="true"
-            android:clipToPadding="false"
-            android:padding="10dp"
-            tools:listitem="@layout/category_item" />
+            android:layout_height="match_parent"
+            >
 
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/deals_image_slider"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_below="@+id/categories_rv"
-            android:layout_weight="2"
-            app:sliderAnimationDuration="600"
-            app:sliderAutoCycleDirection="back_and_forth"
-            app:sliderAutoCycleEnabled="true"
-            app:sliderScrollTimeInSec="2"
-            app:sliderStartAutoCycle="true"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categories_rv"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:layout_alignParentTop="true"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/category_item" />
 
-            />
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/deals_image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_below="@+id/categories_rv"
+                android:layout_weight="2"
+                app:sliderAnimationDuration="300"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/deals_rv"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignTop="@+id/deals_image_slider"
-            android:layout_marginTop="250dp"
-            android:clipToPadding="false"
-            android:padding="10dp"
-            tools:listitem="@layout/deal_item" />
+                />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/deals_rv"
-            android:src="@drawable/msa7a_e3laneya"
-            />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/deals_rv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignTop="@+id/deals_image_slider"
+                android:layout_marginTop="250dp"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/deal_item" />
 
-
-
-
-
-
-
-
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/e3lan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/deals_rv"
+                android:src="@drawable/msa7a_e3laneya"
+                />
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/products_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                android:layout_below="@id/e3lan"
+                tools:listitem="@layout/product_item"
+                />
 
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>
